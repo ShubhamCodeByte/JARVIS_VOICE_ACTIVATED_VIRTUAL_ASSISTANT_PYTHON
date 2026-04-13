@@ -5,9 +5,27 @@ import musiclibrary
 import pyjokes
 import google.generativeai as genai
 
+# for the api key from the .env file configured
+import os 
+from dotenv import load_dotenv
+
+# Load the secret key from the .env file
+try:
+  load_dotenv()
+  api_key = os.getenv("GEMINI_API_KEY")
+
+  if not api_key:
+      print("Error: No API key found. Check your .env file.")
+  else:
+      genai.configure(api_key=api_key)
+  # to use the api key from the .env
+except Exception as e :
+  print("Error: {}".format(e))
+
+
 
 # google ai studio api key 
-genai.configure(api_key="AIzaSyCOwxmoiiTBfuawQUZDDf-lvRoSaN_hJlE")
+genai.configure(api_key=api_key)
 
 
 # Configure the AI to give short, voice-friendly answers
