@@ -5,6 +5,14 @@ import musiclibrary
 import pyjokes
 import google.generativeai as genai
 
+# this is for the playing of the audio file by gTTs
+import pygame
+import time
+
+
+# installing the module for the voice change 
+from gtts import gTTS
+
 # for the api key from the .env file configured
 import os 
 from dotenv import load_dotenv
@@ -55,11 +63,37 @@ def giveJoke():
 # creating the object for the recognition 
 recognizer = sr.Recognizer()
 
-# fuction to speak the text
-def speak(text):
+# fuction to speak the text this is the older one to use the default voice 
+def speak_old(text):
   engine = pyttsx3.init()
   engine.say(text)
   engine.runAndWait()
+
+# this speak is with the gTTs
+def speak(text):
+    tts = gTTS(text)
+    tts.save('jarvis.mp3')
+
+    # 1. Initialize the mixer
+    pygame.mixer.init()
+
+    # 2. Load the music file (replace with your filename)
+    pygame.mixer.music.load("jarvis.mp3")
+
+    # 3. Start playback
+    # -1 means the music will loop indefinitely, 0 plays it once
+    pygame.mixer.music.play()
+
+    # print("Playing music...")
+
+    # 4. Keep the script running
+    # Without a loop or delay, the script ends and the music stops immediately
+    while pygame.mixer.music.get_busy():
+        time.sleep(1)
+
+    pygame.mixer.music.unload()
+    os.remove("jarvis.mp3")
+
 
 # this will process the command 
 def processCommand(c: str):
