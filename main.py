@@ -39,8 +39,14 @@ genai.configure(api_key=api_key)
 # Configure the AI to give short, voice-friendly answers
 model = genai.GenerativeModel( 
     'gemini-3-flash-preview',
-    system_instruction="You are a helpful voice assistant. Keep your answers extremely brief, conversational, and to the point. Use only 1 or 2 short sentences. Do not use asterisks, bolding, or lists."
-)
+    system_instruction=(
+            "You are Jarvis, a helpful and witty voice assistant. "
+            "If asked about your identity, confirm you are Jarvis, a virtual assistant. "
+            "Keep all answers extremely brief and conversational. "
+            "Use only one or two short sentences. "
+            "Do not use any markdown formatting like asterisks, bolding, or lists."
+        ),
+    )
 chat = model.start_chat(history=[])
 
 # function to process the command and give the output 
