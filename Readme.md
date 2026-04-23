@@ -1,6 +1,6 @@
 # Jarvis — Voice-Activated Virtual Assistant
 
-Jarvis is a voice-activated virtual assistant that listens for your commands and performs tasks like web browsing, music playback, fetching news, and answering complex queries — powered by OpenAI's GPT-3.5-turbo.
+Jarvis is a voice-activated virtual assistant that listens for your commands and performs tasks like web browsing, music playback, fetching jokes, and answering complex queries — powered by gemini-3.1-flash-lite-preview
 
 ## Features
 
@@ -9,8 +9,7 @@ Jarvis is a voice-activated virtual assistant that listens for your commands and
 - **Text-to-Speech** — Responds via pyttsx3 or gTTS + pygame
 - **Web Browsing** — Opens Google, YouTube, Facebook, LinkedIn on command
 - **Music Playback** — Plays songs via web links through a musicLibrary module
-- **News Fetching** — Reads latest headlines using NewsAPI
-- **AI Responses** — Handles open-ended queries using OpenAI's GPT-3.5-turbo
+- **AI Responses** — Handles open-ended queries using gemini-3.1-flash-lite-preview
 
 ## Installation
 
@@ -23,8 +22,7 @@ pip install -r Requirements.txt
 Set up a `.env` file:
 
 ```
-OPENAI_API_KEY=your_openai_api_key
-NEWS_API_KEY=your_newsapi_key
+OPENAI_API_KEY=your_gemini_api_key
 ```
 
 Then run:
